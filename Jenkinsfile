@@ -1,13 +1,11 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Scarica codice') {
-            steps {
-                checkout scm
-            }
-        }
+    environment {
+        PATH = "/usr/local/go/bin:${env.PATH}"
+    }
 
+    stages {
         stage('Esegui test') {
             steps {
                 sh 'go version'
