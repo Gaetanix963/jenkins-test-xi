@@ -1,5 +1,7 @@
 package main
 
+// Commento su una singola riga per testare il push automatico su Jenkins
+
 import "testing"
 
 func TestSomma(t *testing.T) {
