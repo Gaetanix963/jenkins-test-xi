@@ -6,10 +6,21 @@ pipeline {
     }
 
     stages {
-        stage('Esegui test') {
+        stage('Analisi statica') {
             steps {
-                sh 'go version'
-                sh 'go test ./...'
+                sh 'go vet ./...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'go test -v ./...'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'go build ./...'
             }
         }
     }
